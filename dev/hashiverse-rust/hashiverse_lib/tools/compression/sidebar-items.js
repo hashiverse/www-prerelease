@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["compress_for_size","compress_for_speed","decompress"]};

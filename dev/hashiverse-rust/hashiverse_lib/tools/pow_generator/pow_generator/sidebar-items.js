@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["generate_loop"],"struct":["JobTracker","PowJobStatus"],"trait":["PowGenerator"]};

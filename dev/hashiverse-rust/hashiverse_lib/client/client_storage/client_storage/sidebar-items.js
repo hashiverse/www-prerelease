@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["BUCKETS","BUCKET_CONFIG","BUCKET_CONFIG_KEY_META_POST_V1_PRIVATE","BUCKET_CONFIG_KEY_META_POST_V1_PUBLIC","BUCKET_META_POST_PUBLIC","BUCKET_PEER","BUCKET_POST_BUNDLE","BUCKET_POST_BUNDLE_FEEDBACK","BUCKET_TRIMS"],"fn":["config_key_for_user","get_str","get_struct","put_str","put_struct"],"trait":["ClientStorage"]};

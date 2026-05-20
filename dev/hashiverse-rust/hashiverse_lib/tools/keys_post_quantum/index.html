@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Post-Quantum Cryptography resilience"><title>hashiverse_lib::tools::keys_post_quantum - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Italic-81dc35de.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-MediumItalic-ccf7e434.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2"href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../../static.files/rustdoc-17e0aaed.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="hashiverse_lib" data-themes="" data-resource-suffix="" data-rustdoc-version="1.97.0-nightly (9eb3be26b 2026-05-18)" data-channel="nightly" data-search-js="search-fd9372ac.js" data-stringdex-js="stringdex-2da4960a.js" data-settings-js="settings-170eb4bf.js" ><script src="../../../static.files/storage-41dd4d93.js"></script><script defer src="../sidebar-items.js"></script><script defer src="../../../static.files/main-fcd733ba.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-f7c3ffd8.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-eab170b8.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-044be391.svg"></head><body class="rustdoc mod"><a class="skip-main-content" href="#main-content">Skip to main content</a><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><rustdoc-topbar><h2><a href="#">Module keys_post_quantum</a></h2></rustdoc-topbar><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../../hashiverse_lib/index.html">hashiverse_<wbr>lib</a><span class="version">1.0.5-rc5</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">Module keys_<wbr>post_<wbr>quantum</a></h2><h3><a href="#">Sections</a></h3><ul class="block top-toc"><li><a href="#post-quantum-cryptography-resilience" title="Post-Quantum Cryptography resilience">Post-Quantum Cryptography resilience</a><ul><li><a href="#the-problem" title="The problem">The problem</a></li><li><a href="#current-design" title="Current design">Current design</a></li><li><a href="#upgrade-path" title="Upgrade path">Upgrade path</a></li><li><a href="#why-not-sphincs-fips-205" title="Why not SPHINCS+ (FIPS 205)?">Why not SPHINCS+ (FIPS 205)?</a></li></ul></li></ul><h3><a href="#functions">Module Items</a></h3><ul class="block"><li><a href="#functions" title="Functions">Functions</a></li></ul></section><div id="rustdoc-modnav"><h2><a href="../index.html">In hashiverse_<wbr>lib::<wbr>tools</a></h2></div></div></nav><div class="sidebar-resizer" title="Drag to resize sidebar"></div><main><div class="width-limiter"><section id="main-content" class="content" tabindex="-1"><div class="main-heading"><div class="rustdoc-breadcrumbs"><a href="../../index.html">hashiverse_lib</a>::<wbr><a href="../index.html">tools</a></div><h1>Module <span>keys_<wbr>post_<wbr>quantum</span>&nbsp;<button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../../../src/hashiverse_lib/tools/keys_post_quantum.rs.html#1-86">Source</a> </span></div><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><h2 id="post-quantum-cryptography-resilience"><a class="doc-anchor" href="#post-quantum-cryptography-resilience">§</a>Post-Quantum Cryptography resilience</h2><h3 id="the-problem"><a class="doc-anchor" href="#the-problem">§</a>The problem</h3>
+<p>Hashiverse identities are derived from public keys:
+<code>ID = Blake3[ ed25519_pub || Blake3[Falcon_pub][0..16] || Blake3[Dilithium_pub][0..16] ]</code></p>
+<p>Because the identity <em>is</em> the key, there is no upgrade path that preserves identity —
+switching algorithms would require replacing every server and client ID on the network.
+Post-quantum support must therefore be baked in from the start, not bolted on later.</p>
+<h3 id="current-design"><a class="doc-anchor" href="#current-design">§</a>Current design</h3>
+<p>Rather than signing everything with PQ algorithms today (which carry large key and signature
+sizes and lack <code>window.crypto.subtle</code> browser support), each identity commits to two PQ
+public keys via their 16-byte Blake3 hashes:</p>
+<ul>
+<li><strong>FN-DSA / Falcon (FIPS 205)</strong> — smaller signatures than Dilithium; preferred first-step
+upgrade when Ed25519 is threatened.</li>
+<li><strong>ML-DSA / Dilithium (FIPS 204)</strong> — fallback if Falcon is later compromised. Already
+under consideration for <code>window.crypto.subtle</code>, making it the most likely candidate for
+full browser-native signing support in future.</li>
+</ul>
+<p>The commitments are shipped with every message as part of the identity header; the full PQ
+public keys are not shipped today and private keys remain unused until quantum-day.</p>
+<h3 id="upgrade-path"><a class="doc-anchor" href="#upgrade-path">§</a>Upgrade path</h3>
+<ul>
+<li><strong>Ed25519 compromised</strong> → network upgrades to Falcon. The full Falcon public key begins
+shipping with every message and is used to verify Falcon signatures. Receivers confirm
+<code>Blake3[Falcon_pub][0..16] == commitment_falcon</code> embedded in the sender’s identity.</li>
+<li><strong>Falcon compromised</strong> → network similarly upgrades to Dilithium.</li>
+<li><strong>Dilithium threatened</strong> → a migration to future PQ algorithms would be needed, likely
+requiring a “please follow me on my new identity” protocol. The same protocol would also
+serve other identity migration use cases (e.g. a compromised key).</li>
+</ul>
+<h3 id="why-not-sphincs-fips-205"><a class="doc-anchor" href="#why-not-sphincs-fips-205">§</a>Why not SPHINCS+ (FIPS 205)?</h3>
+<p>SPHINCS+ has the strongest security assumptions of the standardised PQ algorithms, but its
+signatures are multiple kilobytes — infeasible for a high-throughput messaging network.
+A 16-byte commitment to a SPHINCS+ key was considered as an ultimate fallback, but the
+cost of including it in every message header outweighs the benefit of covering an already
+unlikely scenario (both Falcon and Dilithium broken simultaneously).</p>
+</div></details><h2 id="functions" class="section-header">Functions<a href="#functions" class="anchor">§</a></h2><dl class="item-table"><dt><a class="fn" href="fn.pq_commitment_bytes_from_seed.html" title="fn hashiverse_lib::tools::keys_post_quantum::pq_commitment_bytes_from_seed">pq_<wbr>commitment_<wbr>bytes_<wbr>from_<wbr>seed</a></dt></dl></section></div></main></body></html>

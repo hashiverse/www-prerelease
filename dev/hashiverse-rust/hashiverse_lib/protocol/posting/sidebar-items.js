@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["amplification","encoded_post","encoded_post_bundle","encoded_post_bundle_feedback","encoded_post_feedback"]};

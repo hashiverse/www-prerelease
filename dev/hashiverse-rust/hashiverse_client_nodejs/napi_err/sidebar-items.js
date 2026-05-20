@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["anyhow_to_napi","join_err_to_napi"]};

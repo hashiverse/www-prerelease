@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["native_parallel_pow_generator","pow_generator","single_threaded_pow_generator"]};

@@ -1,0 +1,9 @@
+(function() {
+    const implementors = Object.fromEntries([["hashiverse_lib",[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/core/cmp/trait.Ord.html\" title=\"trait core::cmp::Ord\">Ord</a> for <a class=\"struct\" href=\"hashiverse_lib/tools/time/struct.DurationMillis.html\" title=\"struct hashiverse_lib::tools::time::DurationMillis\">DurationMillis</a>",0],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/core/cmp/trait.Ord.html\" title=\"trait core::cmp::Ord\">Ord</a> for <a class=\"struct\" href=\"hashiverse_lib/tools/time/struct.TimeMillis.html\" title=\"struct hashiverse_lib::tools::time::TimeMillis\">TimeMillis</a>",0],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/core/cmp/trait.Ord.html\" title=\"trait core::cmp::Ord\">Ord</a> for <a class=\"struct\" href=\"hashiverse_lib/tools/time/struct.TimeMillisBytes.html\" title=\"struct hashiverse_lib::tools::time::TimeMillisBytes\">TimeMillisBytes</a>",0],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/core/cmp/trait.Ord.html\" title=\"trait core::cmp::Ord\">Ord</a> for <a class=\"struct\" href=\"hashiverse_lib/tools/types/struct.Id.html\" title=\"struct hashiverse_lib::tools::types::Id\">Id</a>",0],["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/core/cmp/trait.Ord.html\" title=\"trait core::cmp::Ord\">Ord</a> for <a class=\"struct\" href=\"hashiverse_lib/tools/types/struct.Pow.html\" title=\"struct hashiverse_lib::tools::types::Pow\">Pow</a>",0]]]]);
+    if (window.register_implementors) {
+        window.register_implementors(implementors);
+    } else {
+        window.pending_implementors = implementors;
+    }
+})()
+//{"start":59,"fragment_lengths":[1456]}

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["bytes_to_struct","string_to_struct","struct_to_bytes","struct_to_string"]};

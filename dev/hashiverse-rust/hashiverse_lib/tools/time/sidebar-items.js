@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["DURATION_MILLIS_BYTES","MILLIS_IN_DAY","MILLIS_IN_HOUR","MILLIS_IN_MILLISECOND","MILLIS_IN_MINUTE","MILLIS_IN_MONTH","MILLIS_IN_SECOND","MILLIS_IN_WEEK","MILLIS_IN_YEAR","TIME_MILLIS_BYTES"],"fn":["to_bucket"],"struct":["DurationMillis","DurationMillisBytes","TimeMillis","TimeMillisBytes"]};

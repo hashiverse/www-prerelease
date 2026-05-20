@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["disk_key_locker","key_locker","mem_key_locker"]};

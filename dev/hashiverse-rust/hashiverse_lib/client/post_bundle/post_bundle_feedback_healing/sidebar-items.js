@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["heal_post_bundle_feedbacks"]};

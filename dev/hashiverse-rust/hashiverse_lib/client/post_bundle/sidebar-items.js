@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["live_post_bundle_feedback_manager","live_post_bundle_manager","post_bundle_feedback_healing","post_bundle_feedback_manager","post_bundle_healing","post_bundle_manager","posting","stub_post_bundle_feedback_manager","stub_post_bundle_manager"]};

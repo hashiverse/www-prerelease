@@ -1,0 +1,214 @@
+<!DOCTYPE html><html lang="fr"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Votre réseau social P2P décentralisé."><title>Résilience et auto-réparation — Hashiverse</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="canonical" href="https://www.hashiverse.com/fr/dev/resilience/"><link rel="alternate" hreflang="de" href="https://www.hashiverse.com/de/dev/resilience/"><link rel="alternate" hreflang="en" href="https://www.hashiverse.com/en/dev/resilience/"><link rel="alternate" hreflang="es" href="https://www.hashiverse.com/es/dev/resilience/"><link rel="alternate" hreflang="fr" href="https://www.hashiverse.com/fr/dev/resilience/"><link rel="alternate" hreflang="nl" href="https://www.hashiverse.com/nl/dev/resilience/"><link rel="alternate" hreflang="pt" href="https://www.hashiverse.com/pt/dev/resilience/"><link rel="alternate" hreflang="x-default" href="https://www.hashiverse.com/"><meta property="og:type" content="article"><meta property="og:site_name" content="Hashiverse"><meta property="og:title" content="Résilience et auto-réparation — Hashiverse"><meta property="og:description" content="Votre réseau social P2P décentralisé."><meta property="og:url" content="https://www.hashiverse.com/fr/dev/resilience/"><meta property="og:locale" content="fr"><meta property="og:locale:alternate" content="de"><meta property="og:locale:alternate" content="en"><meta property="og:locale:alternate" content="es"><meta property="og:locale:alternate" content="nl"><meta property="og:locale:alternate" content="pt"><meta property="og:image" content="https://www.hashiverse.com/og-image.jpg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta property="og:image:alt" content="Hashiverse — Votre réseau social P2P décentralisé."><meta property="og:image:type" content="image/jpeg"><meta property="article:published_time" content="2026-04-20"><meta property="article:modified_time" content="2026-05-04T14:45:24+03:00"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Résilience et auto-réparation — Hashiverse"><meta name="twitter:description" content="Votre réseau social P2P décentralisé."><meta name="twitter:image" content="https://www.hashiverse.com/og-image.jpg"><meta name="twitter:image:alt" content="Hashiverse — Votre réseau social P2P décentralisé."><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Hashiverse","url":"https://www.hashiverse.com","logo":"https://www.hashiverse.com/logo.png","image":"https://www.hashiverse.com/og-image.jpg","foundingDate":"2026-04-20","sameAs":["https://github.com/hashiverse/hashiverse"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Hashiverse","url":"https://www.hashiverse.com","inLanguage":["de","en","es","fr","nl","pt"],"description":"Votre réseau social P2P décentralisé."}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Hashiverse","applicationCategory":"SocialNetworkingApplication","operatingSystem":"Web, Windows, macOS, Linux","url":"https://www.hashiverse.com","image":"https://www.hashiverse.com/og-image.jpg","datePublished":"2026-04-20","description":"Votre réseau social P2P décentralisé.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"license":"https://github.com/hashiverse/hashiverse/blob/main/LICENSE","codeRepository":"https://github.com/hashiverse/hashiverse","programmingLanguage":["Rust","TypeScript"],"author":{"@type":"Organization","name":"Hashiverse","url":"https://www.hashiverse.com"},"softwareVersion":"1.0.5-rc5"}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"Résilience et auto-réparation","description":"Votre réseau social P2P décentralisé.","inLanguage":"fr","url":"https://www.hashiverse.com/fr/dev/resilience/","datePublished":"2026-04-20","dateModified":"2026-05-04T14:45:24+03:00","image":"https://www.hashiverse.com/og-image.jpg","isPartOf":{"@type":"WebSite","url":"https://www.hashiverse.com"},"publisher":{"@type":"Organization","name":"Hashiverse","url":"https://www.hashiverse.com","logo":{"@type":"ImageObject","url":"https://www.hashiverse.com/logo.png"}}}</script> <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Hashiverse","item":"https://www.hashiverse.com/fr/"},{"@type":"ListItem","position":2,"name":"Dev","item":"https://www.hashiverse.com/fr/dev/"},{"@type":"ListItem","position":3,"name":"Résilience et auto-réparation","item":"https://www.hashiverse.com/fr/dev/resilience/"}]}</script> <style>:root{--bg: #221100;--bg-raised: #2c1600;--bg-surface: #361b00;--accent: #c87820;--accent-bright: #e89030;--text: #e8d5b0;--text-muted: #8a6a40;--border: #3d2200;--code-bg: #1a0d00}*,*:before,*:after{box-sizing:border-box}html,body{margin:0;padding:0;min-height:100vh}body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,sans-serif;line-height:1.6}body.fullscreen{display:flex;align-items:center;justify-content:center}a{color:var(--accent);text-decoration:none}a:hover{color:var(--accent-bright);text-decoration:underline}h1,h2,h3,h4{color:var(--text);line-height:1.2}code{background:var(--code-bg);border:1px solid var(--border);border-radius:3px;padding:.1em .4em;font-size:.875em;font-family:Courier New,monospace}pre{background:var(--code-bg);border:1px solid var(--border);border-radius:6px;padding:1.25rem;overflow-x:auto}pre code{background:none;border:none;padding:0;font-size:.875rem}.prerelease-banner{position:fixed;bottom:.75rem;left:.75rem;z-index:9999;background:#c87820;color:#210;font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:.7rem;padding:.15rem .55rem;letter-spacing:.02em;border-radius:3px;box-shadow:0 2px 6px #0006;pointer-events:none}nav[data-astro-cid-dmqpwcec]{display:flex;align-items:center;gap:2rem;padding:1rem 2rem;border-bottom:1px solid var(--border);background:var(--bg)}.nav-logo[data-astro-cid-dmqpwcec] img[data-astro-cid-dmqpwcec]{display:block}nav[data-astro-cid-dmqpwcec]>ul[data-astro-cid-dmqpwcec]{display:flex;gap:1.5rem;list-style:none;margin:0;padding:0;flex-wrap:nowrap}nav[data-astro-cid-dmqpwcec] a[data-astro-cid-dmqpwcec]{color:var(--text-muted);text-decoration:none;font-size:.9rem;letter-spacing:.05em;text-transform:uppercase;transition:color .15s}nav[data-astro-cid-dmqpwcec] a[data-astro-cid-dmqpwcec]:hover,nav[data-astro-cid-dmqpwcec] a[data-astro-cid-dmqpwcec].active{color:var(--accent)}.lang-switcher[data-astro-cid-dmqpwcec]{margin-left:auto;position:relative}.lang-btn[data-astro-cid-dmqpwcec]{display:inline-flex;align-items:center;gap:.4rem;background:transparent;border:1px solid var(--border);border-radius:4px;padding:.3rem .5rem;cursor:pointer;color:var(--text-muted);transition:border-color .15s,color .15s}.lang-btn[data-astro-cid-dmqpwcec]:hover,.lang-btn[data-astro-cid-dmqpwcec][aria-expanded=true]{border-color:var(--accent);color:var(--accent)}.lang-chevron[data-astro-cid-dmqpwcec]{font-size:.7rem;line-height:1}.lang-menu[data-astro-cid-dmqpwcec]{position:absolute;top:calc(100% + .4rem);right:0;min-width:10rem;background:var(--bg-raised);border:1px solid var(--border);border-radius:6px;padding:.3rem;margin:0;list-style:none;box-shadow:0 4px 12px #0006;z-index:100;display:flex;flex-direction:column;gap:.1rem}.lang-menu[data-astro-cid-dmqpwcec][hidden]{display:none}.lang-item[data-astro-cid-dmqpwcec]{display:flex;align-items:center;gap:.6rem;padding:.4rem .6rem;border-radius:4px;text-transform:none;letter-spacing:0;font-size:.875rem;color:var(--text)}.lang-item[data-astro-cid-dmqpwcec]:hover{background:var(--bg-surface);color:var(--accent);text-decoration:none}.lang-item[data-astro-cid-dmqpwcec].active{color:var(--accent);background:var(--bg-surface)}.lang-flag[data-astro-cid-dmqpwcec]{width:22px;height:16px;object-fit:cover;border-radius:2px;display:block;flex-shrink:0}@media(max-width:720px){nav[data-astro-cid-dmqpwcec]{gap:.6rem;padding:.6rem .75rem}.nav-logo[data-astro-cid-dmqpwcec] img[data-astro-cid-dmqpwcec]{height:22px;width:auto}nav[data-astro-cid-dmqpwcec] a[data-astro-cid-dmqpwcec]{font-size:.7rem;letter-spacing:.02em}nav[data-astro-cid-dmqpwcec]>ul[data-astro-cid-dmqpwcec]{gap:.6rem}.lang-btn[data-astro-cid-dmqpwcec]{padding:.25rem .4rem}}
+.layout[data-astro-cid-xichhuew]{display:flex;min-height:calc(100vh - 57px)}aside[data-astro-cid-xichhuew]{width:240px;flex-shrink:0;border-right:1px solid var(--border);padding:2rem 1.5rem}aside[data-astro-cid-xichhuew] nav[data-astro-cid-xichhuew]{display:flex;flex-direction:column;gap:.25rem}.section[data-astro-cid-xichhuew]{display:flex;flex-direction:column;gap:.1rem;margin-bottom:.75rem}aside[data-astro-cid-xichhuew] a[data-astro-cid-xichhuew]{color:var(--text-muted);font-size:.875rem;padding:.25rem .5rem;border-radius:4px;display:block;transition:color .15s,background .15s}aside[data-astro-cid-xichhuew] a[data-astro-cid-xichhuew]:hover,aside[data-astro-cid-xichhuew] a[data-astro-cid-xichhuew].active{color:var(--accent);background:var(--bg-raised);text-decoration:none}ul[data-astro-cid-xichhuew]{list-style:none;margin:0;padding:0 0 0 .75rem}main[data-astro-cid-xichhuew]{flex:1;min-width:0;padding:2.5rem 3rem;max-width:820px}.page-banner[data-astro-cid-xichhuew]{float:right;width:min(300px,40vw);margin:0 0 1.5rem 2rem;border-radius:8px}.page-next-wrap[data-astro-cid-xichhuew]{clear:both;display:flex;justify-content:flex-end;margin-top:3rem}.page-next[data-astro-cid-xichhuew]{display:inline-flex;align-items:baseline;gap:.5rem;padding:.75rem 1.1rem;border:1px solid var(--border);border-radius:6px;background:var(--bg-raised);color:var(--accent);text-decoration:none;font-size:.95rem;transition:border-color .15s,background .15s,color .15s}.page-next[data-astro-cid-xichhuew]:hover{border-color:var(--accent);background:var(--bg-surface);color:var(--accent-bright);text-decoration:none}.page-next-label[data-astro-cid-xichhuew]{color:var(--text-muted);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}.page-next-title[data-astro-cid-xichhuew]{font-weight:600}.page-next-arrow[data-astro-cid-xichhuew]{margin-left:.15rem}.sidebar-toggle[data-astro-cid-xichhuew]{display:none;align-items:center;justify-content:space-between;width:100%;background:transparent;border:none;border-bottom:1px solid var(--border);padding:.85rem 1rem;cursor:pointer;color:var(--text-muted);font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;transition:color .15s}.sidebar-toggle[data-astro-cid-xichhuew]:hover{color:var(--accent)}.sidebar-toggle[data-astro-cid-xichhuew] .chev[data-astro-cid-xichhuew]{transition:transform .2s}.sidebar-toggle[data-astro-cid-xichhuew][aria-expanded=true] .chev[data-astro-cid-xichhuew]{transform:rotate(180deg)}@media(max-width:720px){.layout[data-astro-cid-xichhuew]{flex-direction:column;min-height:auto}.sidebar-toggle[data-astro-cid-xichhuew]{display:flex}aside[data-astro-cid-xichhuew]{width:100%;border-right:none;border-bottom:1px solid var(--border);padding:.75rem 1rem 1rem;display:none}aside[data-astro-cid-xichhuew].open{display:block}main[data-astro-cid-xichhuew]{padding:1.5rem 1rem;max-width:100%}main[data-astro-cid-xichhuew] h1[data-astro-cid-xichhuew]{font-size:1.6rem;margin-bottom:1rem;padding-bottom:.5rem}main[data-astro-cid-xichhuew] h2{font-size:1.2rem;margin:1.5rem 0 .5rem}main[data-astro-cid-xichhuew] h3{font-size:1rem}.page-banner[data-astro-cid-xichhuew]{float:none;width:100%;max-width:400px;margin:0 auto 1.5rem;display:block}}main[data-astro-cid-xichhuew] h1[data-astro-cid-xichhuew]{font-size:2rem;margin-bottom:1.5rem;border-bottom:1px solid var(--border);padding-bottom:.75rem}main[data-astro-cid-xichhuew] h2{font-size:1.4rem;margin:2rem 0 .75rem}main[data-astro-cid-xichhuew] h3{font-size:1.1rem;margin:1.5rem 0 .5rem;color:var(--text-muted)}main[data-astro-cid-xichhuew] p{margin:0 0 1rem}main[data-astro-cid-xichhuew] ul,main[data-astro-cid-xichhuew] ol{margin:0 0 1rem 1.5rem}main[data-astro-cid-xichhuew] li{margin-bottom:.25rem}main[data-astro-cid-xichhuew] blockquote{border-left:3px solid var(--accent);margin:1.5rem 0;padding:.75rem 1.25rem;background:var(--bg-raised);border-radius:0 4px 4px 0;font-style:italic;color:var(--text-muted)}main[data-astro-cid-xichhuew] blockquote p{margin:0 0 .5rem}main[data-astro-cid-xichhuew] blockquote p:last-child{margin:0}
+</style></head> <body> <div class="prerelease-banner">Préversion: v1.0.5-rc5</div>   <nav data-astro-cid-dmqpwcec> <a href="/fr/" class="nav-logo" data-astro-cid-dmqpwcec> <img src="/logo.webp" alt="Hashiverse" height="28" data-astro-cid-dmqpwcec> </a> <ul data-astro-cid-dmqpwcec> <li data-astro-cid-dmqpwcec> <a id="nav-app-link" href="#" data-astro-cid-dmqpwcec>App</a> </li> <li data-astro-cid-dmqpwcec> <a href="/fr/lore/" data-astro-cid-dmqpwcec> Vision </a> </li><li data-astro-cid-dmqpwcec> <a href="/fr/dev/" class="active" data-astro-cid-dmqpwcec> Dev </a> </li> <li data-astro-cid-dmqpwcec> <a href="https://github.com/hashiverse" data-astro-cid-dmqpwcec>GitHub</a> </li> </ul> <div class="lang-switcher" data-lang-switcher data-astro-cid-dmqpwcec> <button type="button" class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Langue" data-lang-btn data-astro-cid-dmqpwcec> <img src="/flags/fr.svg" alt="Français" class="lang-flag" data-astro-cid-dmqpwcec> <span class="lang-chevron" aria-hidden="true" data-astro-cid-dmqpwcec>▾</span> </button> <ul class="lang-menu" role="menu" hidden data-lang-menu data-astro-cid-dmqpwcec> <li role="none" data-astro-cid-dmqpwcec> <a role="menuitem" href="/de/dev/resilience/" class="lang-item" hreflang="de" data-astro-cid-dmqpwcec> <img src="/flags/de.svg" alt="" class="lang-flag" data-astro-cid-dmqpwcec> <span data-astro-cid-dmqpwcec>Deutsch</span> </a> </li><li role="none" data-astro-cid-dmqpwcec> <a role="menuitem" href="/en/dev/resilience/" class="lang-item" hreflang="en" data-astro-cid-dmqpwcec> <img src="/flags/en.svg" alt="" class="lang-flag" data-astro-cid-dmqpwcec> <span data-astro-cid-dmqpwcec>English</span> </a> </li><li role="none" data-astro-cid-dmqpwcec> <a role="menuitem" href="/es/dev/resilience/" class="lang-item" hreflang="es" data-astro-cid-dmqpwcec> <img src="/flags/es.svg" alt="" class="lang-flag" data-astro-cid-dmqpwcec> <span data-astro-cid-dmqpwcec>Español</span> </a> </li><li role="none" data-astro-cid-dmqpwcec> <a role="menuitem" href="/fr/dev/resilience/" class="lang-item active" hreflang="fr" data-astro-cid-dmqpwcec> <img src="/flags/fr.svg" alt="" class="lang-flag" data-astro-cid-dmqpwcec> <span data-astro-cid-dmqpwcec>Français</span> </a> </li><li role="none" data-astro-cid-dmqpwcec> <a role="menuitem" href="/nl/dev/resilience/" class="lang-item" hreflang="nl" data-astro-cid-dmqpwcec> <img src="/flags/nl.svg" alt="" class="lang-flag" data-astro-cid-dmqpwcec> <span data-astro-cid-dmqpwcec>Nederlands</span> </a> </li><li role="none" data-astro-cid-dmqpwcec> <a role="menuitem" href="/pt/dev/resilience/" class="lang-item" hreflang="pt" data-astro-cid-dmqpwcec> <img src="/flags/pt.svg" alt="" class="lang-flag" data-astro-cid-dmqpwcec> <span data-astro-cid-dmqpwcec>Português</span> </a> </li> </ul> </div> </nav> <script type="module">const i=document.getElementById("nav-app-link");if(i){const t=window.location.hostname;if(t==="localhost"||t==="127.0.0.1")i.href="http://localhost:3000";else{const r=t.startsWith("www.")?t.slice(4):t;i.href=`https://app.${r}`}}const a=document.querySelector("[data-lang-switcher]"),e=a?.querySelector("[data-lang-btn]"),n=a?.querySelector("[data-lang-menu]");function o(){!n||!e||(n.setAttribute("hidden",""),e.setAttribute("aria-expanded","false"))}function s(){!n||!e||(n.removeAttribute("hidden"),e.setAttribute("aria-expanded","true"))}e?.addEventListener("click",t=>{t.stopPropagation(),n?.hasAttribute("hidden")?s():o()});document.addEventListener("click",t=>{!a||a.contains(t.target)||o()});document.addEventListener("keydown",t=>{t.key==="Escape"&&o()});</script>  <div class="layout" data-astro-cid-xichhuew> <button type="button" class="sidebar-toggle" aria-controls="doc-sidebar" aria-expanded="false" data-sidebar-toggle data-astro-cid-xichhuew> <span data-astro-cid-xichhuew>Sommaire</span> <span class="chev" aria-hidden="true" data-astro-cid-xichhuew>▾</span> </button>
+      <aside id="doc-sidebar" data-sidebar data-astro-cid-xichhuew> <nav data-astro-cid-xichhuew> <div class="section" data-astro-cid-xichhuew> <a href="/fr/dev/" data-astro-cid-xichhuew> Vue d&#39;ensemble </a>  </div><div class="section" data-astro-cid-xichhuew> <a href="/fr/dev/getting-started/" data-astro-cid-xichhuew> Pour commencer </a>  </div><div class="section" data-astro-cid-xichhuew> <a href="/fr/dev/cryptography/" data-astro-cid-xichhuew> Fondations cryptographiques </a>  </div><div class="section" data-astro-cid-xichhuew> <a href="/fr/dev/pow/" data-astro-cid-xichhuew> Preuve de travail </a>  </div><div class="section" data-astro-cid-xichhuew> <a href="/fr/dev/network/" data-astro-cid-xichhuew> Le réseau DHT </a>  </div><div class="section" data-astro-cid-xichhuew> <a href="/fr/dev/posts/" data-astro-cid-xichhuew> Protocole des publications </a>  </div><div class="section" data-astro-cid-xichhuew> <a href="/fr/dev/moderation/" data-astro-cid-xichhuew> Modération du contenu </a>  </div><div class="section" data-astro-cid-xichhuew> <a href="/fr/dev/resilience/" class="active" data-astro-cid-xichhuew> Résilience et auto-réparation </a>  </div><div class="section" data-astro-cid-xichhuew> <a href="/fr/dev/future/" data-astro-cid-xichhuew> Pistes futures </a>  </div><div class="section" data-astro-cid-xichhuew> <a href="/fr/dev/geeking-out/" data-astro-cid-xichhuew> Pour les passionnés </a>  </div><div class="section" data-astro-cid-xichhuew> <a href="https://github.com/hashiverse" data-astro-cid-xichhuew> Référence API </a> <ul data-astro-cid-xichhuew> <li data-astro-cid-xichhuew> <a href="/dev/hashiverse-rust/hashiverse_lib/" data-astro-cid-xichhuew> hashiverse_lib </a> </li><li data-astro-cid-xichhuew> <a href="/dev/hashiverse-rust/hashiverse_server_lib/" data-astro-cid-xichhuew> hashiverse_server_lib </a> </li><li data-astro-cid-xichhuew> <a href="/dev/hashiverse-rust/hashiverse_server/" data-astro-cid-xichhuew> hashiverse_server </a> </li><li data-astro-cid-xichhuew> <a href="/dev/hashiverse-rust/hashiverse_client_wasm/" data-astro-cid-xichhuew> hashiverse_client_wasm </a> </li><li data-astro-cid-xichhuew> <a href="/dev/hashiverse-client-web/" data-astro-cid-xichhuew> hashiverse-client-web </a> </li> </ul> </div> </nav> </aside> <main data-astro-cid-xichhuew> <h1 data-astro-cid-xichhuew>Résilience et auto-réparation</h1>    <p>
+Un réseau décentralisé n'est durable qu'à hauteur de sa capacité à se relever de
+        défaillances partielles. Des serveurs passent hors ligne. De nouveaux serveurs rejoignent
+        et doivent amorcer leurs données. Des partitions réseau provoquent des divergences.
+        Hashiverse traite cela par des protocoles d'auto-réparation qui opèrent sans aucun
+        coordinateur central — pilotés par les clients et les serveurs détectant l'incohérence
+        et la corrigeant.
+</p> <h2>Sharding et répartition de charge</h2> <p>
+Les médias sociaux suivent des lois de puissance. Un petit nombre d'utilisateurs et de
+        hashtags attire la grande majorité des abonnés et génère la majorité des publications.
+        Dans une DHT naïve, cela signifie qu'un petit nombre de nœuds porterait la majorité de
+        la charge — devenant des goulots de performance et des cibles DDoS de grande valeur du
+        seul fait du contenu qu'ils hébergent. Hashiverse traite cela au niveau du modèle de
+        données par un sharding basé sur le temps et la fréquence.
+</p> <h3>Clés de bucket par époque</h3> <p>
+Le contenu d'un utilisateur ou d'un hashtag n'est pas stocké sous une clé DHT unique et
+        figée. La clé est fonction de l'identifiant public de l'utilisateur (ou du texte du
+        hashtag) <em>et</em> d'une époque temporelle. L'emplacement DHT des publications d'un
+        utilisateur se déplace donc dans le temps, étalant la responsabilité d'héberger son
+        contenu sur différents nœuds dans différentes époques.
+</p> <p>
+Pour les utilisateurs et hashtags à fort volume, l'espace des clés est encore subdivisé :
+        plus une identité est active en volume de publications, plus la subdivision en buckets
+        devient granulaire. Le contenu d'un posteur prolifique est réparti sur davantage de
+        buckets, plus petits — chacun hébergé par une région différente de l'anneau DHT. Cela
+        est capturé par le type <code>BucketLocation</code>, qui encode ensemble l'identité,
+        l'époque et la granularité du bucket.
+</p> <p>
+Le résultat : aucun nœud ne devient durablement responsable du trafic d'un utilisateur
+        à forte audience, et aucun nœud ne devient une cible stable pour une attaque DDoS visant
+        à faire taire un compte ou un hashtag précis.
+</p> <p> <strong>Source :</strong> <a href="https://github.com/hashiverse/hashiverse/tree/main/hashiverse-rust/hashiverse-lib/src/tools/buckets.rs"><code>buckets.rs</code></a> —
+<code>BucketLocation</code> </p> <h2>Mise en cache pilotée par la demande</h2> <p>
+Au-delà de la réparation (qui répare les données manquantes après coup), Hashiverse
+        implémente une mise en cache pilotée par la demande pour réduire la charge sur les
+        serveurs DHT les plus proches pour les buckets populaires. Des serveurs intermédiaires
+        mettent en cache les bundles de publications et les bundles de retours pour le compte
+        des nœuds les plus proches du contenu, servant les clients directement et terminant le
+        parcours Kademlia plus tôt. Le cache s'étend vers l'extérieur sous une demande soutenue
+        et se contracte automatiquement quand l'intérêt baisse — entièrement auto-régulé,
+        aucune coordination requise.
+</p> <h3>Mécanisme de jeton à seuil de hits</h3> <p>
+Chaque serveur maintient un <strong>cache de bundles</strong> et un <strong>cache de
+        retours</strong> (un cache pondéré Moka par type). À chaque requête entrante
+<code>GetPostBundleV1</code> ou <code>GetPostBundleFeedbackV1</code>, le serveur
+        incrémente un compteur de hits pour cet emplacement de bucket. Une fois que le compteur
+        atteint le seuil (actuellement 10 hits dans la fenêtre d'inactivité), le serveur émet un
+<code>CacheRequestTokenV1</code> — un jeton de courte durée signé par le serveur et
+        portée à cet emplacement de bucket.
+</p> <p>
+Le client collecte tous les jetons émis pendant son parcours Kademlia. Après avoir
+        récupéré et vérifié avec succès le bundle depuis un serveur responsable, il téléverse
+        de manière asynchrone le bundle vers chaque serveur émetteur de jeton via
+<code>CachePostBundleV1</code> / <code>CachePostBundleFeedbackV1</code>. Le serveur
+        valide le jeton (signature, expiration, correspondance d'emplacement), parse le bundle
+        et le stocke dans le cache en mémoire. Les clients suivants qui passent par ce serveur
+        reçoivent le bundle en cache directement, sans poursuivre le parcours plus loin.
+</p> <p>
+Un cache de déduplication en cours (clé par identifiant d'emplacement, TTL correspondant
+        à la durée de vie du jeton) empêche le serveur d'émettre des jetons en double pour
+        plusieurs parcoureurs concurrents sur le même bucket.
+</p> <p> <strong>Source :</strong> <a href="https://github.com/hashiverse/hashiverse/tree/main/hashiverse-rust/hashiverse-server-lib/src/server/post_bundle_caching.rs"><code>post_bundle_caching.rs</code></a>,
+<a href="https://github.com/hashiverse/hashiverse/tree/main/hashiverse-rust/hashiverse-server-lib/src/server/post_bundle_feedback_caching.rs"><code>post_bundle_feedback_caching.rs</code></a> </p> <h3>Buckets vivants vs scellés</h3> <p>
+Le cache distingue les données vivantes et scellées :
+</p> <ul> <li> <strong>Buckets vivants</strong> (époque courante, acceptant encore des
+            publications) — chaque bundle en cache porte une expiration absolue de
+<em>heure du serveur + 5 minutes</em>. Les bundles ne sont servis que tant qu'ils
+            sont frais ; les entrées périmées sont sautées à la lecture sans être évincées,
+            préservant l'historique de hits de l'emplacement afin que le seuil puisse être
+            atteint à nouveau rapidement quand de nouveaux contenus arrivent.
+</li> <li> <strong>Buckets scellés</strong> (époque close, plus de nouvelles publications) —
+            les bundles en cache n'ont pas d'expiration individuelle. Ils sont évincés
+            uniquement par le time-to-idle au niveau de l'emplacement (60 secondes sans requête)
+            ou par la limite de capacité en octets de Moka. Tant qu'un bucket scellé reste
+            chaud, sa copie en cache persiste indéfiniment.
+</li> </ul> <h3>Rayon de découverte côté client</h3> <p>
+Pour tirer parti du cache en expansion, chaque client maintient un <strong>rayon de
+        découverte</strong> par bucket : la distance XOR jusqu'au serveur le plus éloigné qui a
+        renvoyé un bundle avec succès lors du parcours précédent. Au parcours suivant, le
+<code>PeerIterator</code> saute les serveurs plus proches que ce rayon et commence à
+        interroger depuis la frontière vers l'extérieur — allant directement là où le cache a
+        été trouvé en dernier, contournant entièrement les serveurs responsables (les plus
+        intérieurs).
+</p> <p>
+Le rayon est mis à jour après chaque parcours à la distance XOR du répondant positif le
+        plus éloigné. Si les couches externes du cache ont expiré entre-temps et qu'aucun
+        serveur à la frontière ne répond, le parcours retombe sur le pair le plus proche
+        suivant et le rayon se contracte naturellement pour refléter la profondeur courante du
+        cache. Le rayon est conservé dans un cache à time-to-idle, de sorte que les buckets
+        non visités depuis un moment repartent depuis les serveurs responsables au prochain
+        accès.
+</p> <h3>Éviction et capacité du cache</h3> <p>
+Les deux caches sont pondérés par la taille effective des bundles en octets, adossés à
+        la politique d'admission W-TinyLFU de Moka. Les entrées « placeholder » (emplacements
+        qui ont été interrogés mais pas encore peuplés d'un bundle) utilisent un petit poids
+        fixe afin de participer à l'esquisse de fréquence sans consommer de capacité réelle.
+        Quand la limite haute en octets est atteinte, les emplacements les moins
+        fréquemment utilisés sont évincés en premier. Chaque emplacement a aussi un
+        time-to-idle de 60 secondes : un emplacement qui cesse de recevoir des requêtes est
+        évincé en silence, réinitialisant son compteur de hits et contractant le rayon effectif
+        du cache.
+</p> <p>
+Le cache de bundles stocke jusqu'à un nombre configurable d'origines par emplacement
+        (actuellement 5). Si une nouvelle origine arrive alors que le plafond par emplacement
+        est plein, le bundle qui expire le plus tôt est remplacé. Les bundles scellés (sans
+        expiration) sont traités comme expirant en dernier et ne sont déplacés que par
+        d'autres bundles scellés.
+</p> <p> <strong>Source :</strong> <a href="https://github.com/hashiverse/hashiverse/tree/main/hashiverse-rust/hashiverse-server-lib/src/server/post_bundle_caching_shared.rs"><code>post_bundle_caching_shared.rs</code></a>,
+<a href="https://github.com/hashiverse/hashiverse/tree/main/hashiverse-rust/hashiverse-lib/src/tools/config.rs"><code>config.rs</code></a> — <code>SERVER_POST_BUNDLE_CACHE_MAX_BYTES</code> et autres.
+</p> <h2>Réparation des bundles de publications</h2> <p>
+Quand un client récupère des publications pour un bucket, il interroge plusieurs serveurs
+        et collecte leurs réponses. Il compare ensuite : quel serveur a des publications qu'un
+        autre serveur n'a pas ? Pour chaque paire donneur-cible où le donneur a des publications
+        que la cible n'a pas, le client organise une réparation en deux phases :
+</p> <ol> <li> <strong>Phase de claim</strong> : le client demande au serveur cible lesquelles des
+            publications du donneur il lui faut, via une requête
+<code>HealPostBundleClaimV1</code>. Le serveur déclare les identifiants de
+            publications qui lui manquent.
+</li> <li> <strong>Phase de commit</strong> : le client (ou le donneur, agissant comme proxy)
+            envoie ces octets de publications spécifiques à la cible via
+<code>HealPostBundleCommitV1</code>.
+</li> </ol> <p>
+Cela tourne dans des tâches d'arrière-plan démarrées après que la récupération
+        principale du client est terminée. L'utilisateur voit son contenu sans attendre la
+        réparation ; le réseau se répare en parallèle.
+</p> <p> <strong>Source :</strong> <a href="https://github.com/hashiverse/hashiverse/tree/main/hashiverse-rust/hashiverse-lib/src/client/post_bundle/post_bundle_healing.rs"><code>post_bundle_healing.rs</code></a>,
+<a href="https://github.com/hashiverse/hashiverse/tree/main/hashiverse-rust/hashiverse-integration-tests/tests/test_healing_post_bundles.rs"><code>test_healing_post_bundles.rs</code></a> </p> <h2>Réparation des retours</h2> <p>
+Les signaux de retour — j'aime, signalements, je n'aime pas — divergent aussi entre
+        serveurs à mesure qu'ils se propagent dans le réseau. Un signalement peut atteindre le
+        serveur A mais pas le serveur B. La réparation des retours traite cela séparément de la
+        réparation des publications, parce que les retours ont une forme de données différente
+        (l'enregistrement <code>EncodedPostFeedbackV1</code> de 50 octets) et une règle de
+        fusion différente.
+</p> <p>
+La règle de fusion pour les retours est : pour chaque paire (post_id, type_de_retour),
+        garder le signal avec la PoW la plus élevée parmi tous les serveurs. Le client, après
+        avoir collecté des retours depuis plusieurs serveurs, calcule le maximum global et
+        identifie les serveurs qui ont des signaux plus faibles que ce maximum. Il envoie alors
+        les signaux plus forts à ces serveurs via <code>HealPostBundleFeedbackV1</code>.
+</p> <p>
+C'est une réparation en une seule phase (pas de phase de claim) : l'enregistrement de
+        retour est suffisamment petit pour qu'envoyer inconditionnellement coûte moins cher que
+        l'aller-retour consistant à demander d'abord.
+</p> <p> <strong>Source :</strong> <a href="https://github.com/hashiverse/hashiverse/tree/main/hashiverse-rust/hashiverse-lib/src/client/post_bundle/post_bundle_feedback_healing.rs"><code>post_bundle_feedback_healing.rs</code></a>,
+<a href="https://github.com/hashiverse/hashiverse/tree/main/hashiverse-rust/hashiverse-integration-tests/tests/test_healing_post_bundle_feedbacks.rs"><code>test_healing_post_bundle_feedbacks.rs</code></a> </p> <h2>Résistance aux DDoS</h2> <p>
+Hashiverse a quatre couches de protection DDoS qui interceptent les attaques à des
+        points progressivement plus précoces du cycle de vie d'une connexion, du filtrage de
+        paquets au niveau du noyau jusqu'au limiteur de débit applicatif.
+</p> <h3>Couche noyau : liste noire ipset</h3> <p>
+Pour les attaques soutenues ou sévères, le serveur escalade vers l'abandon de paquets au
+        niveau noyau via l'<code>ipset</code> Linux. Les IPs sur liste noire sont ajoutées à
+        un ensemble de hachage avec un timeout de cinq minutes ; iptables (ou nftables) abandonne
+        les paquets correspondants avant qu'ils n'atteignent la couche applicative, éliminant
+        même le coût d'accepter et de rejeter la connexion TCP.
+</p> <pre><code>ipset create hashiverse_ddos_blacklist hash:ip timeout 300</code></pre> <p>
+Le serveur Rust ajoute des IPs à cet ensemble via des appels non bloquants
+<code>Command::new("ipset")</code> — l'opération noyau ne bloque pas le traitement des
+        requêtes. Cela exige <code>CAP_NET_ADMIN</code> ou root en production, géré via les
+        Linux Ambient Capabilities.
+</p> <h3>Pré-TLS : plafond de connexions et limite de slots par IP</h3> <p>
+Chaque nouvelle connexion TCP est vérifiée <em>avant</em> que la poignée de main TLS ne
+        commence. Deux gardes s'exécutent à ce moment :
+</p> <ul> <li> <strong>Plafond global de connexions</strong> — un sémaphore limite le nombre total
+            de connexions TCP simultanées en vol. Si le plafond est atteint, le socket est
+            fermé immédiatement ; aucune ressource de poignée de main n'est consommée.
+</li> <li> <strong>Plafond de connexions par IP</strong> — un compteur en mémoire séparé
+            limite combien de connexions concurrentes une seule IP peut tenir. Cela empêche
+            qu'une seule adresse monopolise tous les slots disponibles. Les IPs déjà sur la
+            liste de bannissement applicative sont aussi rejetées ici.
+</li> </ul> <p>
+Les deux vérifications se déclenchent avant l'appel à <code>TlsAcceptor::accept</code>,
+        de sorte qu'une avalanche de nouvelles connexions depuis une seule IP ne consomme aucun
+        CPU pour la négociation TLS. Le serveur est délibérément IPv4 uniquement pour
+        l'instant ; la prise en charge d'IPv6 nécessite un suivi par préfixe (/64) pour être
+        efficace, ce qui n'est pas encore implémenté.
+</p> <h3>Timeout de poignée de main TLS</h3> <p>
+Une fois qu'une connexion passe les gardes pré-TLS, la poignée de main TLS est
+        encadrée par un timeout strict. Un client qui envoie un ClientHello mais ne complète
+        jamais la poignée de main — une connexion lente classique au niveau TLS — est largué
+        après un nombre fixe de secondes et son score de mauvaise requête est incrémenté, le
+        rapprochant du bannissement applicatif.
+</p> <h3>Défense Slow Loris : timeouts de lecture d'en-têtes et de corps</h3> <p>
+Après une poignée de main TLS réussie, deux autres timeouts protègent contre les
+        attaques de maintien de connexion au niveau HTTP :
+</p> <ul> <li> <strong>Timeout de lecture des en-têtes</strong> — si un client HTTP/1.1 n'a pas
+            fini d'envoyer ses en-têtes de requête dans la fenêtre autorisée, la connexion est
+            larguée. C'est la défense principale contre les attaques Slow Loris classiques, où
+            un attaquant ouvre de nombreuses connexions et envoie les en-têtes octet par octet
+            pour tenir les slots ouverts indéfiniment.
+</li> <li> <strong>Timeout de lecture du corps</strong> — un timeout séparé couvre le corps de
+            la requête. Cela défend contre les variantes au niveau du corps où les en-têtes
+            arrivent vite mais le corps est diffusé au compte-gouttes. Combiné à une taille
+            maximale de corps explicite, cela borne à la fois le temps et la mémoire consommés
+            par requête.
+</li> </ul> <h3>Couche applicative : cache de réputation IP</h3> <p>
+Les requêtes qui passent toutes les couches précédentes sont suivies par adresse IP via
+        un cache en mémoire <strong>Moka</strong>. Les IPs qui dépassent le seuil de débit de
+        requêtes dans une fenêtre glissante reçoivent une réponse d'erreur RPC Hashiverse et
+        accumulent un score de mauvaise requête. Une fois que le score franchit un seuil, l'IP
+        est promue sur la liste noire ipset, la faisant tomber sur la couche noyau pour les
+        futures connexions.
+</p> <p> <strong>Source :</strong> <a href="https://github.com/hashiverse/hashiverse/tree/main/hashiverse-rust/hashiverse-server-lib/src/network/transport/"><code>hashiverse-server-lib/src/network/transport/</code></a>,
+<a href="https://github.com/hashiverse/hashiverse/tree/main/hashiverse-rust/hashiverse-lib/src/tools/config.rs"><code>config.rs</code></a> </p> <h2>Abstraction TimeProvider</h2> <p>
+Le trait <code>TimeProvider</code> abstrait sur le temps réel, permettant
+<code>ScaledTimeProvider</code> — une horloge de simulation à temps accéléré utilisée
+        en tests. Les tests d'intégration qui vérifient le comportement de réparation sur des
+        fenêtres de temps qui prendraient normalement des heures peuvent tourner en quelques
+        secondes en mettant le temps à l'échelle. C'est ainsi que la suite de tests d'intégration
+        peut vérifier le cycle de vie complet de la réparation — y compris l'expiration des
+        anciens contenus — sans délais d'horloge murale.
+</p> <p> <strong>Source :</strong> <a href="https://github.com/hashiverse/hashiverse/tree/main/hashiverse-rust/hashiverse-lib/src/tools/time_provider/"><code>hashiverse-lib/src/tools/time_provider/</code></a> </p>   <div class="page-next-wrap" data-astro-cid-xichhuew> <a href="/fr/dev/future/" class="page-next" rel="next" data-astro-cid-xichhuew> <span class="page-next-label" data-astro-cid-xichhuew>Suivant</span> <span class="page-next-title" data-astro-cid-xichhuew>Pistes futures</span> <span class="page-next-arrow" aria-hidden="true" data-astro-cid-xichhuew>→</span> </a> </div> </main> </div>  </body></html> <script type="module">const e=document.querySelector("[data-sidebar-toggle]"),t=document.querySelector("[data-sidebar]");e?.addEventListener("click",()=>{if(!t)return;const a=t.classList.toggle("open");e.setAttribute("aria-expanded",a?"true":"false")});</script> 

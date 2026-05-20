@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["get_wasm_parallel_pow_generator","init_pow_workers","pow_compute_batch","wasm_init"],"macro":[["wasm_try",1]],"mod":["hashiverse_client_wasm","wasm_bootstrap_provider","wasm_client_storage","wasm_key_locker","wasm_local_settings","wasm_parallel_pow_generator","wasm_transport","wasm_try","with_js_context"]};

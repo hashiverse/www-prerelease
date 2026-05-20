@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["MetaPost"],"fn":["merge_collection","merge_private","merge_public","merge_scalar_field"],"struct":["MetaPostPrivateV1","MetaPostPublicV1","MetaPostV1","VersionedField"]};

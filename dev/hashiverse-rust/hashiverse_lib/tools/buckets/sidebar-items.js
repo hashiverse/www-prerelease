@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["BUCKET_DURATIONS"],"enum":["BucketType"],"fn":["bucket_durations_for_type","generate_bucket_location"],"struct":["Bucket","BucketLocation"]};

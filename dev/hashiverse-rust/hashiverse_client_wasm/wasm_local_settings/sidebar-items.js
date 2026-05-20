@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["local_settings_get"]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"constant":["HASH_BYTES","ID_BYTES","PQ_COMMITMENT_BYTES","SALT_BYTES","SIGNATURE_BYTES","SIGNATURE_KEY_BYTES","VERIFICATION_KEY_BYTES"],"struct":["BucketKey","Hash","Id","PQCommitmentBytes","Pow","Salt","Signature","SignatureKey","SignatureKeyBytes","VerificationKey","VerificationKeyBytes"]};

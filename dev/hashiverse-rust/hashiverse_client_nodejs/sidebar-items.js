@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["convert_text_to_hashiverse_html","convert_text_to_hashiverse_html_x_hashtag","convert_text_to_hashiverse_html_x_mention","convert_text_to_hashiverse_html_x_url_preview","init_logging"],"macro":[["napi_try",1]],"mod":["hashiverse_client_nodejs","napi_err"]};

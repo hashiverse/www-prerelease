@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["payload","submit_post_v1"]};
